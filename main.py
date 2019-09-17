@@ -10,6 +10,7 @@ class softunicode():
 
         #if font != '': self.font = ImageFont.load(font)
         #else: self.font = ImageFont.load('Arial')
+        self.font = None
     
     def changeFont(self,font:str):
         if font[-3:].lower() in ('ttf', 'otf'):
@@ -71,7 +72,7 @@ def main():
             subprocess.call(['sudo', '/usr/bin/python3', *sys.argv])
             quit(1)
         else:
-            print("Unknown Error has catched. Program will closed.\n==========================")
+            print("Unknown Error about has catched during handling with USB Device. Program will closed.\n==========================")
             raise e
     
     tt = softunicode(350)
