@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 from PIL import Image, ImageDraw, ImageFont
 from escpos.printer import Usb
@@ -64,12 +64,12 @@ class softunicode():
             out.append(''.join(line))
         return ''.join(out)
 
-def main():
+def main(): # Demo
     try: p = Usb(0x0416,0x5011)
     except usb.core.USBError as e:
         if e.errno == 13:
             print("Printing permission is required. (are you root?)")
-            subprocess.call(['sudo', '/usr/bin/python3', *sys.argv])
+            subprocess.call(['sudo', '/usr/bin/env', 'python3', *sys.argv])
             quit(1)
         else:
             print("Unknown Error about has catched during handling with USB Device. Program will closed.\n==========================")
